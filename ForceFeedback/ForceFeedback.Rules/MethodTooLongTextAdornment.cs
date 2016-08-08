@@ -182,12 +182,7 @@ namespace ForceFeedback.Rules
 
             foreach (var codeBlock in codeBlocks)
             {
-                var linesOfCode = codeBlock
-                    .WithoutLeadingTrivia()
-                    .WithoutTrailingTrivia()
-                    .GetText()
-                    .Lines
-                    .Count;
+                var linesOfCode = codeBlock.CalculateLinesOfCode();
                 var correspondingLimitConfiguration = null as LongMethodLimitConfiguration;
 
                 foreach (var limitConfiguration in ConfigurationManager.Configuration.MethodTooLongLimits.OrderBy(limit => limit.Lines))
