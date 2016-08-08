@@ -1,32 +1,46 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace ForceFeedback.Rules.Extensions
 {
-    public static class SyntaxNodeExtension
+    internal static class SyntaxNodeExtension
     {
-        public static bool IsSyntaxBlock(this SyntaxNode node)
+		/// <summary>
+		/// Determines whether node is of kind SyntaxKind.Block.
+		/// </summary>
+		public static bool IsSyntaxBlock(this SyntaxNode node)
         {
             return node.Kind() == SyntaxKind.Block;
         }
 
-        public static bool IsMethod(this SyntaxNode node)
+		/// <summary>
+		/// Determines whether node is of kind SyntaxKind.MethodDeclaration.
+		/// </summary>
+		public static bool IsMethod(this SyntaxNode node)
         {
             return node.Kind() == SyntaxKind.MethodDeclaration;
         }
 
-        public static bool IsConstructor(this SyntaxNode node)
+		/// <summary>
+		/// Determines whether node is of kind SyntaxKind.ConstructorDeclaration.
+		/// </summary>
+		public static bool IsConstructor(this SyntaxNode node)
         {
             return node.Kind() == SyntaxKind.ConstructorDeclaration;
         }
 
-        public static bool IsSetter(this SyntaxNode node)
+		/// <summary>
+		/// Determines whether node is of kind SyntaxKind.SetAccessorDeclaration.
+		/// </summary>
+		public static bool IsSetter(this SyntaxNode node)
         {
             return node.Kind() == SyntaxKind.SetAccessorDeclaration;
         }
 
-        public static bool IsGetter(this SyntaxNode node)
+		/// <summary>
+		/// Determines whether node is of kind SyntaxKind.GetAccessorDeclaration.
+		/// </summary>
+		public static bool IsGetter(this SyntaxNode node)
         {
             return node.Kind() == SyntaxKind.GetAccessorDeclaration;
         }
